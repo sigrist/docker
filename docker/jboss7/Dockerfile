@@ -5,15 +5,19 @@
 FROM venturus/jdk
 MAINTAINER Paulo Sigrist <paulo.sigrist@venturus.org.br>
 
-# Download JBoss 7.1.1
-RUN mkdir -p /opt && cd /opt && wget "http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz" && tar -zxvf jboss-as-7.1.1.Final.tar.gz
- 
+# Download JBoss 7.1.1 (based on jdk7_jboss7/Dockerfile from codenvy)
+RUN mkdir /opt/jboss && \
+    wget \
+    -qO- \
+    "http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz" | tar -zx --strip-components=1 -C /opt/jboss/ 
+
 # Expose JBoss ports
+EXPOSE 8009
 EXPOSE 8080
 EXPOSE 9990
 
 # Entry point
-ENTRYPOINT ["/opt/jboss-as-7.1.1.Final/bin/standalone.sh"]
+ENTRYPOINT ["/opt/jboss/bin/standalone.sh"]
 
 # Default parameters
 CMD ["-b 0.0.0.0 -bmanagement 0.0.0.0"]
