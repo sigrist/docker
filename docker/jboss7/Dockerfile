@@ -8,7 +8,6 @@ MAINTAINER Paulo Sigrist <paulo.sigrist@venturus.org.br>
 # Download JBoss 7.1.1
 RUN mkdir -p /opt && cd /opt && wget "http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz" && tar -zxvf jboss-as-7.1.1.Final.tar.gz
  
-Nao descompactou no /opt
 # Expose JBoss ports
 EXPOSE 8080
 EXPOSE 9990
