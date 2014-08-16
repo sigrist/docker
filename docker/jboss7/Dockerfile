@@ -1,7 +1,7 @@
 ##
 # Dockerfile with Ububtu 14.10 - utopic
 # Oracle Java JDK 7
-# Docker image venturus/jdk7
+# Docker image venturus/jdk
 FROM venturus/jdk
 MAINTAINER Paulo Sigrist <paulo.sigrist@venturus.org.br>
 
@@ -26,14 +26,14 @@ CMD ["-b 0.0.0.0 -bmanagement 0.0.0.0"]
 # Using this image:
 #
 # Default (start jboss using standalone.xml file binding with ip 0.0.0.0)
-# $ docker run -p 8080:8080 -p 9990:9990 venturus/jdk7_jboss7 
+# $ docker run -p 8080:8080 -p 9990:9990 venturus/jboss:7.1.1-Final
 #
 # Specify a custom config file
-# $ docker run venturus/jdk7_jboss7 --server-config=standalone-full.xml
+# $ docker run venturus/jboss:7.1.1-Final --server-config=standalone-full.xml
 #
 # To run and free the console, run with -d parameter
-# $ docker run -p 8080:8080 -p 9990:9990 -d venturus/jdk7_jboss7 --server-config=standalone-full.xml
+# $ docker run -p 8080:8080 -p 9990:9990 -d venturus/jboss:7.1.1-Final --server-config=standalone-full.xml
 #
 # To login into the image
-# $ docker run -ti --entrypoint="/bin/bash" venturus/jdk7_jboss7 -s
+# $ docker run -ti --entrypoint="/bin/bash" venturus/jboss:7.1.1-Final -s
 # For more details which parameters to use, check https://docs.jboss.org/author/display/AS71/Command+line+parameters
