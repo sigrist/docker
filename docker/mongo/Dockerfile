@@ -29,3 +29,19 @@ ENTRYPOINT ["/usr/bin/mongod"]
 # Default parameters
 CMD ["--help"]
 
+#####
+# Using this image:
+#
+# Default (mongod --help)
+# $ docker run venturus/mongodb
+#
+# Run mongodb (
+# $ docker run -p venturus/mongodb -v
+#
+# Run mon
+# $ docker run -p 8080:8080 -p 9990:9990 -d venturus/jboss:7.1.1-Final --server-config=standalone-full.xml
+#
+# To login into the image
+# $ docker run -ti --entrypoint="/bin/bash" venturus/mongodb -s
+
+
